@@ -1,0 +1,11 @@
+-lib tink_macro
+-lib tink_json
+
+-cp src
+
+-dce full
+-D eval-stack
+-D analyzer-optimize
+
+--main ereg.Collect
+--interp

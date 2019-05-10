@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: monospace;
+            }
+            td {
+                min-width: 100px;
+            }
+            td:first-of-type {
+                padding: 0.5em;
+                padding-right: 2em;
+            }
+            thead th:not(:first-of-type) {
+                padding-bottom: 1em;
+                text-align: left;
+            }
+            tbody td {
+                text-align: left;
+            }
+            tbody td:first-of-type {
+                background-color: rgba(211, 211, 211, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>expected</th>
+                    ::foreach headers::<th>::target::/::engine::</th>::end::
+                </tr>
+            </thead>
+            <tbody>
+                ::foreach group::<tr>
+                    <td>::name::</td>
+                    <td>::expected::</td>
+                    ::foreach test::<td data-matched="::(expected == outcome)::">
+                        ::if (expected == outcome)::👍::else::❌
+                        ::if (matched != null):: 
+                                ::matched:: 
+                            ::end::
+                            ::if (error != null):: 
+                                ::error:: 
+                            ::end::
+                        ::end::
+                    </td>::end::
+                </tr>::end::
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,769 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: monospace;
+            }
+            td {
+                min-width: 100px;
+            }
+            td:first-of-type {
+                padding: 0.5em;
+                padding-right: 2em;
+            }
+            thead th:not(:first-of-type) {
+                padding-bottom: 1em;
+                text-align: left;
+            }
+            tbody td {
+                text-align: left;
+            }
+            tbody td:first-of-type {
+                background-color: rgba(211, 211, 211, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>expected</th>
+                    
+                    <th>python/re</th>
+                    
+                    <th>php/PCRE</th>
+                    
+                    <th>js/RegExp</th>
+                    
+                    <th>neko/PCRE</th>
+                    
+                    <th>hl/PCRE</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <td>testEndOfLine</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withCR</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withCRLF</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withCRLF_multiline</td>
+                        <td>true</td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                
+
+                                
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withCR_multiline</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                 
+                                    abc 
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withLF</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testEndOfLine_withLF_multiline</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartEndOfLine_withCRLF</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartEndOfLine_withCRLF_multiline</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                 
+                                    abc 
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartEndOfLine_withLF</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartEndOfLine_withLF_multiline</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartEndOfLine_withMixedCRLF_multiline</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                 
+                                    abc 
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withCR</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withCRLF</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withCRLF_multiline</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withCR_multiline</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="false">
+                            
+                            ❌
+                                 
+                                    abc 
+                                
+
+                                
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withLF</td>
+                        <td>false</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+                    <tr>
+                        <td>testStartOfLine_withLF_multiline</td>
+                        <td>true</td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                        <td data-matched="true">
+                            
+                            👍
+                            
+                        </td>
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+    </body>
+</html>

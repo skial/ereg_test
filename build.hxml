@@ -1,0 +1,31 @@
+-lib tink_macro
+-lib tink_json
+
+-cp src
+
+-dce full
+-D eval-stack
+-D analyzer-optimize
+
+--main Entry
+
+--each
+
+-neko bin/ex.n
+
+--next
+
+-hl bin/ex.hl
+
+--next
+
+-lib hxnodejs
+-js bin/ex.js
+
+--next
+
+-php bin/ex
+
+--next
+
+-python bin/ex.py
