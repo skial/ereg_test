@@ -24,70 +24,79 @@ Then run `haxe build.hxml && haxe collect.hxml`. Checkout the generated `results
     </thead>
     <tbody>
         <tr>
-            <td>testEndOfLine</td>
+            <td title="testEndOfLine_withCRLF">~/abc$/u.match('abc\r\n')</td>
+            <td>false</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testEndOfLine_withCR">~/abc$/u.match('abc\r')</td>
+            <td>false</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testEndOfLine_withLF">~/abc$/u.match('abc\n')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td data-matched="false">❌</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testEndOfLine_withCR</td>
-            <td>false</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="testEndOfLine">~/abc$/u.match('abc')</td>
+            <td>true</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testEndOfLine_withCRLF</td>
-            <td>false</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-        </tr>
-        <tr>
-            <td>testEndOfLine_withCRLF_multiline</td>
+            <td title="testEndOfLine_withCRLF_multiline">~/abc$/mu.match('abc\r\n')</td>
             <td>true</td>
             <td data-matched="false">❌</td>
             <td data-matched="false">❌</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
             <td data-matched="false">❌</td>
             <td data-matched="false">❌</td>
         </tr>
         <tr>
-            <td>testEndOfLine_withCR_multiline</td>
+            <td title="testEndOfLine_withCR_multiline">~/abc$/mu.match('abc\r')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
-            <td data-matched="false">❌abc</td>
+            <td title="abc" data-matched="false">❌abc</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testEndOfLine_withLF</td>
+            <td title="testEndOfLine_withLF_multiline">~/abc$/mu.match('abc\n')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="false">❌</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testEndOfLine_withLF_multiline</td>
+            <td title="testStartOfLine">~/^abc/u.match('abc')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartEndOfLine_withCRLF</td>
+            <td title="testStartOfLine_withCR">~/^abc/u.match('\rabc')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
@@ -96,16 +105,7 @@ Then run `haxe build.hxml && haxe collect.hxml`. Checkout the generated `results
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartEndOfLine_withCRLF_multiline</td>
-            <td>false</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="false">❌abc</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-        </tr>
-        <tr>
-            <td>testStartEndOfLine_withLF</td>
+            <td title="testStartOfLine_withCRLF">~/^abc/u.match('\r\nabc')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
@@ -114,34 +114,43 @@ Then run `haxe build.hxml && haxe collect.hxml`. Checkout the generated `results
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartEndOfLine_withLF_multiline</td>
+            <td title="testStartOfLine_withLF">~/^abc/u.match('\nabc')</td>
+            <td>false</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testStartOfLine_withCR_multiline">~/^abc/mu.match('\rabc')</td>
+            <td>false</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="false">❌abc</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testStartOfLine_withCRLF_multiline">~/^abc/mu.match('\r\nabc')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartEndOfLine_withMixedCRLF_multiline</td>
-            <td>false</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="false">❌abc</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-        </tr>
-        <tr>
-            <td>testStartOfLine</td>
+            <td title="testStartOfLine_withLF_multiline">~/^abc/mu.match('\nabc')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartOfLine_withCR</td>
+            <td title="testStartEndOfLine_withCRLF">~/^abc$/u.match('foo\r\nabc\r\n')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
@@ -150,7 +159,7 @@ Then run `haxe build.hxml && haxe collect.hxml`. Checkout the generated `results
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartOfLine_withCRLF</td>
+            <td title="testStartEndOfLine_withLF">~/^abc$/u.match('foo\nabc\n')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
@@ -159,40 +168,49 @@ Then run `haxe build.hxml && haxe collect.hxml`. Checkout the generated `results
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartOfLine_withCRLF_multiline</td>
+            <td title="testStartEndOfLine_withCRLF_multiline">~/^abc$/mu.match('foo\r\nabc\r\n')</td>
+            <td>false</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="false">❌abc</td>
+            <td data-matched="true">👍</td>
+            <td data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testStartEndOfLine_withLF_multiline">~/^abc$/mu.match('foo\nabc\n')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
+            <td title="abc" data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartOfLine_withCR_multiline</td>
+            <td title="testStartEndOfLine_withMixedCRLF_multiline">~/^abc$/mu.match('\n\rfoo\r\n\rabc\r\n')</td>
             <td>false</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
-            <td data-matched="false">❌abc</td>
+            <td title="abc" data-matched="false">❌abc</td>
             <td data-matched="true">👍</td>
             <td data-matched="true">👍</td>
         </tr>
         <tr>
-            <td>testStartOfLine_withLF</td>
-            <td>false</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-        </tr>
-        <tr>
-            <td>testStartOfLine_withLF_multiline</td>
+            <td title="testStartEndOfLine_newlineCharacterSet_PCRE">new EReg('^\Rabc\R$', 'mu').match('\n\rfoo\r\n\rabc\r\n')</td>
             <td>true</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
-            <td data-matched="true">👍</td>
+            <td title="Not tested for this platform">⛔</td>
+            <td title="\rabc\r\n" data-matched="true">👍</td>
+            <td title="Not tested for this platform">⛔</td>
+            <td title="\rabc\r\n" data-matched="true">👍</td>
+            <td title="\rabc\r\n" data-matched="true">👍</td>
+        </tr>
+        <tr>
+            <td title="testStartEndOfLine_newlineGroupSet_NonPCRE">new EReg('^(\r\n|\n|\r)abc(\r\n|\n|\r)$', 'mu').match('\n\rfoo\r\n\rabc\r\n')</td>
+            <td>true</td>
+            <td title="\rabc\r\n" data-matched="true">👍</td>
+            <td title="Not tested for this platform">⛔</td>
+            <td title="\rabc\r\n" data-matched="true">👍</td>
+            <td title="Not tested for this platform">⛔</td>
+            <td title="Not tested for this platform">⛔</td>
         </tr>
     </tbody>
 </table>

@@ -33,20 +33,24 @@
                 </tr>
             </thead>
             <tbody>
-                ::foreach group::<tr>
-                    <td>::name::</td>
+                ::foreach group::
+                <tr>
+                    <td title="::method::">::name::</td>
                     <td>::expected::</td>
-                    ::foreach test::<td data-matched="::(expected == outcome)::">
-                        ::if (expected == outcome)::👍::else::❌
-                        ::if (matched != null):: 
-                                ::matched:: 
+                    ::foreach test::
+                        ::if (name == "skip")::
+                            <td title="Not tested for this platform">⛔</td>
+                        ::else::
+                        <td ::if (matched != null)::title="::matched::"::end::data-matched="::(expected == outcome)::">
+                            ::if (expected == outcome)::👍::else::❌
+                                ::if (matched != null)::::matched::::end::
+                                ::if (error != null)::::error::::end::
                             ::end::
-                            ::if (error != null):: 
-                                ::error:: 
-                            ::end::
+                        </td>
                         ::end::
-                    </td>::end::
-                </tr>::end::
+                    ::end::
+                </tr>
+                ::end::
             </tbody>
         </table>
     </body>

@@ -9,6 +9,13 @@ using tink.MacroApi;
 
 @:nullSafety(Strict) class Macros {
 
+    public static function setDefines() {
+        var target = Target.get();
+        var engine:Engine = target;
+        var define = 'ereg.$engine'.toLowerCase();
+        haxe.macro.Compiler.define(define);
+    }
+
     public static function _test(ereg:ExprOf<EReg>, str:ExprOf<String>, expected:ExprOf<String>):ExprOf<Bool> {
         var regx = '<null:error>';
         var opts = '';
@@ -16,10 +23,14 @@ using tink.MacroApi;
 
         if (methodName == null) methodName = '<unknown:pos:' + ereg.pos + '>';
 
-        switch ereg.expr {
-            case EConst(CRegexp(r, o)):
+        switch ereg {
+            case _.expr => EConst(CRegexp(r, o)):
                 regx = r;
                 opts = o;
+
+            case macro new EReg($r, $o):
+                regx = r.toString();
+                opts = o.toString();
 
             case _:
                 trace( ereg.toString() );
@@ -27,12 +38,15 @@ using tink.MacroApi;
 
         }
 
+        var reg = macro $ereg.match($str);
         var result = macro @:pos(ereg.pos) @:mergeBlock {
+            /*trace($v{regx});
+            untyped trace($ereg.re);*/
             var testInfo:ereg.Results.Test = {
                 name: $v{methodName},
                 position: $v{''+ ereg.pos},
                 expression: {
-                    value: $v{regx}, options: $v{opts}
+                    value: $v{regx}, options: $v{opts}, printed: $v{reg.toString()}
                 },
                 input: $str,
                 expected: $expected,
@@ -44,7 +58,12 @@ using tink.MacroApi;
             try {
                 var result = r.match($str);
                 testInfo.outcome = '' + result;
-                if (result) testInfo.matched = r.matched(0);
+                if (result) testInfo.matched = 
+                    StringTools.replace(
+                        StringTools.replace(r.matched(0),'\n', '\\n'),
+                        '\r', '\\r'
+                    );
+                    
 
             } catch (e:Any) {
                 testInfo.error = '' + e;

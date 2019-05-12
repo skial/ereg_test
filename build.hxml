@@ -7,6 +7,8 @@
 -D eval-stack
 -D analyzer-optimize
 
+--macro ereg.internal.Macros.setDefines()
+
 --main Entry
 
 --each

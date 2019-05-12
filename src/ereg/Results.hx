@@ -27,6 +27,7 @@ typedef Test = {
     expression: {
         value:String,
         options:String,
+        printed:String,
     },
     input:String,
     expected:String,

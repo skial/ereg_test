@@ -65,23 +65,33 @@ class Tests {
     }
 
     public function testStartEndOfLine_withLF() {
-        XReg.isFalse( ~/^abc$/u, 'abc\nfoo\n' );
+        XReg.isFalse( ~/^abc$/u, 'foo\nabc\n' );
     }
 
     public function testStartEndOfLine_withLF_multiline() {
-        XReg.isTrue( ~/^abc$/mu, 'abc\nfoo\n' );
+        XReg.isTrue( ~/^abc$/mu, 'foo\nabc\n' );
     }
 
     public function testStartEndOfLine_withCRLF() {
-        XReg.isFalse( ~/^abc$/u, 'abc\r\nfoo\r\n' );
+        XReg.isFalse( ~/^abc$/u, 'foo\r\nabc\r\n' );
     }
 
     public function testStartEndOfLine_withCRLF_multiline() {
-        XReg.isFalse( ~/^abc$/mu, 'abc\r\nfoo\r\n' );
+        XReg.isFalse( ~/^abc$/mu, 'foo\r\nabc\r\n' );
     }
 
     public function testStartEndOfLine_withMixedCRLF_multiline() {
-        XReg.isFalse( ~/^abc$/mu, '\nabc\r\r\nfoo\r\n' );
+        XReg.isFalse( ~/^abc$/mu, '\n\rfoo\r\n\rabc\r\n' );
     }
+
+    #if (ereg.pcre)
+    public function testStartEndOfLine_newlineCharacterSet_PCRE() {
+        XReg.isTrue( new EReg('^\\Rabc\\R$', 'mu'), '\n\rfoo\r\n\rabc\r\n' );
+    }
+    #else
+    public function testStartEndOfLine_newlineGroupSet_NonPCRE() {
+        XReg.isTrue( new EReg('^(\r\n|\n|\r)abc(\r\n|\n|\r)$', 'mu'), '\n\rfoo\r\n\rabc\r\n' ); 
+    }
+    #end
 
 }
